@@ -12,4 +12,5 @@ class ToDoListItemModel: Object {
     @Persisted var title: String
     @Persisted var taskDescription: String
     @Persisted var date: String
+    @Persisted var complete: Bool
 }

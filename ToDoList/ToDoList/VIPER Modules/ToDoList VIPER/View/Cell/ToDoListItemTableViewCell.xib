@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ToDoListItemTableViewCell" rowHeight="141" id="7Nn-4B-PF9" customClass="ToDoListItemTableViewCell" customModule="ToDoList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="430" height="141"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Nn-4B-PF9" id="1yP-Zc-GfF">
+                <rect key="frame" x="0.0" y="0.0" width="430" height="141"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.bullet.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YEI-Fu-FGQ" customClass="RoundedImageView" customModule="QUIZ" customModuleProvider="target">
+                        <rect key="frame" x="30" y="20.000000000000007" width="100" height="98.666666666666686"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="6cq-bQ-huM"/>
+                            <constraint firstAttribute="width" constant="100" id="zSm-2E-16T"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="название" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkQ-Sr-P1f">
+                        <rect key="frame" x="138" y="19" width="248" height="21.666666666666671"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="дата" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95d-Pu-FRh">
+                        <rect key="frame" x="138" y="60.666666666666664" width="39.333333333333343" height="21.666666666666664"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-bs-fgb">
+                        <rect key="frame" x="207.33333333333337" y="35" width="222.66666666666663" height="34.333333333333343"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain">
+                            <imageReference key="image" image="checkmark.circle" catalog="system" symbolScale="large"/>
+                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                        </buttonConfiguration>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="95d-Pu-FRh" secondAttribute="trailing" constant="20" symbolic="YES" id="2P6-xc-flN"/>
+                    <constraint firstItem="Fq5-bs-fgb" firstAttribute="leading" secondItem="95d-Pu-FRh" secondAttribute="trailing" constant="30" id="2ds-XO-GBG"/>
+                    <constraint firstItem="DkQ-Sr-P1f" firstAttribute="top" secondItem="YEI-Fu-FGQ" secondAttribute="top" constant="7.1054273576010019e-15" id="5HF-2o-FE8"/>
+                    <constraint firstAttribute="trailing" secondItem="Fq5-bs-fgb" secondAttribute="trailing" id="J5m-DI-Apf"/>
+                    <constraint firstItem="Fq5-bs-fgb" firstAttribute="top" secondItem="1yP-Zc-GfF" secondAttribute="top" constant="35" id="KaT-Th-10i"/>
+                    <constraint firstItem="YEI-Fu-FGQ" firstAttribute="leading" secondItem="1yP-Zc-GfF" secondAttribute="leadingMargin" constant="10" id="LcD-5x-YFE"/>
+                    <constraint firstItem="YEI-Fu-FGQ" firstAttribute="top" secondItem="1yP-Zc-GfF" secondAttribute="topMargin" constant="8" id="MCH-Ag-SNt"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="DkQ-Sr-P1f" secondAttribute="trailing" constant="24" id="ReI-8W-7v7"/>
+                    <constraint firstItem="95d-Pu-FRh" firstAttribute="leading" secondItem="DkQ-Sr-P1f" secondAttribute="leading" id="Riy-GT-I4c"/>
+                    <constraint firstItem="DkQ-Sr-P1f" firstAttribute="leading" secondItem="YEI-Fu-FGQ" secondAttribute="trailing" constant="8" id="eTA-Sf-A6P"/>
+                    <constraint firstItem="95d-Pu-FRh" firstAttribute="top" secondItem="DkQ-Sr-P1f" secondAttribute="bottom" constant="20" id="gfb-3b-5Ol"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="YEI-Fu-FGQ" secondAttribute="bottom" constant="8" id="s4a-Q8-JZz"/>
+                    <constraint firstAttribute="bottom" secondItem="Fq5-bs-fgb" secondAttribute="bottom" constant="30" id="woT-nB-mCE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="CompleteStatus" destination="Fq5-bs-fgb" id="e7E-A0-p0N"/>
+                <outlet property="DateLabel" destination="95d-Pu-FRh" id="jve-mt-Tbf"/>
+                <outlet property="TitleLabel" destination="DkQ-Sr-P1f" id="2f7-8z-HCa"/>
+            </connections>
+            <point key="canvasLocation" x="-13.740458015267174" y="0.11737447389414614"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
+        <image name="list.bullet.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
