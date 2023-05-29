@@ -7,6 +7,7 @@
 
 protocol ToDoListInteractorProtocol: AnyObject {
     func GetToDoListItems()
+    func GetToDayDate()
     func saveToDo(_ item: ToDoListItemModel)
     func deleteToDo(_ item: ToDoListItemModel)
 }
@@ -14,16 +15,25 @@ protocol ToDoListInteractorProtocol: AnyObject {
 class ToDoListInteractor: ToDoListInteractorProtocol {
     
     weak var presenter: ToDoListPresenterProtocol?
+    
+    // MARK: - сервисы
     private var realmManager: RealmManager?
+    private var dateManager: DateManager?
     
     // MARK: - Init
-    init(realmManager: RealmManager?) {
+    init(realmManager: RealmManager?, dateManager: DateManager?) {
         self.realmManager = realmManager
+        self.dateManager = dateManager
     }
     
     func GetToDoListItems() {
         guard let realmManager = self.realmManager else {return}
         presenter?.interactorDidFetchedItems(items: realmManager.fetchToDoListItems())
+    }
+    
+    func GetToDayDate() {
+        let date = dateManager?.GetCurrentDate() ?? ""
+        presenter?.interactorDidFetchedDate(date: date)
     }
     
     func saveToDo(_ item: ToDoListItemModel) {

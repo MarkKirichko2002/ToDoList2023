@@ -13,7 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let vc = ToDoListModuleBuilder.build(
-            realmManager: Injection.shared.makeContainer().resolve(RealmManager.self)
+            realmManager: Injection.shared.makeContainer().resolve(RealmManager.self),
+            dateManager: Injection.shared.makeContainer().resolve(DateManager.self)
         )
         let navVC = UINavigationController(rootViewController: vc)
         guard let windowScene = (scene as? UIWindowScene) else { return }
