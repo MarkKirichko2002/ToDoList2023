@@ -9,6 +9,7 @@ protocol ToDoListInteractorProtocol: AnyObject {
     func GetToDoListItems()
     func GetToDayDate()
     func saveToDo(_ item: ToDoListItemModel)
+    func ChangeToDo(item: ToDoListItemModel, title: String, description: String)
     func deleteToDo(_ item: ToDoListItemModel)
 }
 
@@ -38,10 +39,16 @@ class ToDoListInteractor: ToDoListInteractorProtocol {
     
     func saveToDo(_ item: ToDoListItemModel) {
         realmManager?.writeData(item: item)
-        presenter?.didAddToDo()
+        presenter?.didChanged()
+    }
+    
+    func ChangeToDo(item: ToDoListItemModel, title: String, description: String) {
+        realmManager?.changeItem(item: item, title: title, description: description)
+        presenter?.didChanged()
     }
     
     func deleteToDo(_ item: ToDoListItemModel) {
         realmManager?.deleteData(item: item)
+        presenter?.didChanged()
     }
 }
