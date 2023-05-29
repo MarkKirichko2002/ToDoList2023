@@ -20,7 +20,7 @@ class ToDoListViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: ToDoListItemTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ToDoListItemTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -92,8 +92,8 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "задание: \(items[indexPath.row].title) дата: \(items[indexPath.row].date)"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListItemTableViewCell.identifier, for: indexPath) as? ToDoListItemTableViewCell else {fatalError()}
+        cell.configure(item: items[indexPath.row])
         return cell
     }
     
