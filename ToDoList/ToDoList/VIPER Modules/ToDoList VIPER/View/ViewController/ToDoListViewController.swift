@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ToDoListViewProtocol: AnyObject {
+    func displayCurrentDate(date: String)
     func displayToDoListItems(items: [ToDoListItemModel])
 }
 
@@ -26,11 +27,11 @@ class ToDoListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Сегодня"
         view.backgroundColor = .systemBackground
         SetUpTable()
         makeAddButton()
+        presenter?.GetDate()
     }
     
     private func SetUpTable() {
@@ -46,12 +47,12 @@ class ToDoListViewController: UIViewController {
     }
     
     private func makeAddButton() {
-        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(showAddNewItemScreen))
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(showAddNewItem))
         addButton.tintColor = .black
         navigationItem.rightBarButtonItem = addButton
     }
     
-    @objc private func showAddNewItemScreen() {
+    @objc private func showAddNewItem() {
         let alertController = UIAlertController(title: "Добавить новое задание", message: "Введите название и описание", preferredStyle: .alert)
         alertController.addTextField(configurationHandler: nil)
         alertController.addTextField(configurationHandler: nil)
@@ -93,10 +94,17 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - ToDoListViewProtocol
 extension ToDoListViewController: ToDoListViewProtocol {
+    
     func displayToDoListItems(items: [ToDoListItemModel]) {
         DispatchQueue.main.async {
             self.items = items
             self.tableView.reloadData()
+        }
+    }
+    
+    func displayCurrentDate(date: String) {
+        DispatchQueue.main.async {
+            self.navigationItem.title = "Сегодня: \(date)"
         }
     }
 }

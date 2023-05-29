@@ -8,8 +8,11 @@
 import UIKit
 
 class ToDoListModuleBuilder {
-    static func build(realmManager: RealmManager?) -> ToDoListViewController {
-        let interactor = ToDoListInteractor(realmManager: realmManager)
+    static func build(realmManager: RealmManager?, dateManager: DateManager?) -> ToDoListViewController {
+        let interactor = ToDoListInteractor(
+            realmManager: realmManager,
+            dateManager: dateManager
+        )
         let router = ToDoListRouter()
         let presenter = ToDoListPresenter(interactor: interactor, router: router)
         let viewController = ToDoListViewController()

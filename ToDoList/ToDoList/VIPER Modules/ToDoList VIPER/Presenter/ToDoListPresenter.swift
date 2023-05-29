@@ -7,6 +7,8 @@
 
 protocol ToDoListPresenterProtocol: AnyObject {
     func interactorDidFetchedItems(items: [ToDoListItemModel])
+    func GetDate()
+    func interactorDidFetchedDate(date: String)
     func addToDo(item: ToDoListItemModel)
     func DeleteToDo(item: ToDoListItemModel)
     func didAddToDo()
@@ -27,6 +29,14 @@ extension ToDoListPresenter: ToDoListPresenterProtocol {
     
     func interactorDidFetchedItems(items: [ToDoListItemModel]) {
         view?.displayToDoListItems(items: items)
+    }
+    
+    func GetDate() {
+        interactor.GetToDayDate()
+    }
+    
+    func interactorDidFetchedDate(date: String) {
+        view?.displayCurrentDate(date: date)
     }
     
     func addToDo(item: ToDoListItemModel) {
