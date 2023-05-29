@@ -6,7 +6,6 @@
 //
 
 import RealmSwift
-import Foundation
 
 class ToDoListItemModel: Object {
     @Persisted(primaryKey: true) var id: ObjectId

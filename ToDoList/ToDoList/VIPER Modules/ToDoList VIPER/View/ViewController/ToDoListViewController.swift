@@ -77,6 +77,20 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         return items.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alertController = UIAlertController(title: "Изменить задание", message: "Вы хотите изменить задание?", preferredStyle: .alert)
+        alertController.addTextField(configurationHandler: nil)
+        alertController.addTextField(configurationHandler: nil)
+        alertController.addAction(UIAlertAction(title: "Сохранить", style: .default, handler: { [weak self] _ in
+            let titleText = alertController.textFields![0].text ?? ""
+            let descriptionText = alertController.textFields![1].text ?? ""
+            guard !titleText.isEmpty, !descriptionText.isEmpty, let items = self?.items[indexPath.row] else { return }
+            self?.presenter?.EditToDo(item: items, title: titleText, description: descriptionText)
+        }))
+        alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "задание: \(items[indexPath.row].title) дата: \(items[indexPath.row].date)"

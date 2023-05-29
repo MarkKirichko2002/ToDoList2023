@@ -36,11 +36,19 @@ class RealmManager {
         }
     }
     
-    func deleteData(item: ToDoListItemModel) {
-        let item = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
-        guard let item = item else {return}
+    func changeItem(item: ToDoListItemModel, title: String, description: String) {
+        let newItem = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
         try! realm.write {
-            realm.delete(item)
+            newItem?.title = title
+            newItem?.taskDescription = description
+        }
+    }
+    
+    func deleteData(item: ToDoListItemModel) {
+        let newItem = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
+        guard let newItem = newItem else {return}
+        try! realm.write {
+            realm.delete(newItem)
         }
     }
 }

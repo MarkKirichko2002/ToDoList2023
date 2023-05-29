@@ -10,8 +10,9 @@ protocol ToDoListPresenterProtocol: AnyObject {
     func GetDate()
     func interactorDidFetchedDate(date: String)
     func addToDo(item: ToDoListItemModel)
+    func EditToDo(item: ToDoListItemModel, title: String, description: String)
     func DeleteToDo(item: ToDoListItemModel)
-    func didAddToDo()
+    func didChanged()
 }
 
 class ToDoListPresenter {
@@ -43,11 +44,15 @@ extension ToDoListPresenter: ToDoListPresenterProtocol {
         interactor.saveToDo(item)
     }
     
+    func EditToDo(item: ToDoListItemModel, title: String, description: String) {
+        interactor.ChangeToDo(item: item, title: title, description: description)
+    }
+    
     func DeleteToDo(item: ToDoListItemModel) {
         interactor.deleteToDo(item)
     }
     
-    func didAddToDo() {
+    func didChanged() {
         interactor.GetToDoListItems()
     }
 }
