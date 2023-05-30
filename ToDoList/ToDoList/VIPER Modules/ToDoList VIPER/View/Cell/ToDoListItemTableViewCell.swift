@@ -8,8 +8,8 @@
 import UIKit
 
 protocol CustomCellDelegate: AnyObject {
-    func didTapInfo(item: ToDoListItemModel)
     func didTapEdit(item: ToDoListItemModel)
+    func didTapEditImage(item: ToDoListItemModel)
 }
 
 class ToDoListItemTableViewCell: UITableViewCell {
@@ -20,20 +20,21 @@ class ToDoListItemTableViewCell: UITableViewCell {
     
     @IBOutlet var TitleLabel: UILabel!
     @IBOutlet var DateLabel: UILabel!
-    @IBOutlet var InfoButton: UIButton!
-    
-    @IBAction func ShowToDoListItemInfo() {
-        guard let item = item else {return}
-        delegate?.didTapInfo(item: item)
-    }
+    @IBOutlet var ItemImage: UIImageView!
     
     @IBAction func EditToDoListItem() {
         guard let item = item else {return}
         delegate?.didTapEdit(item: item)
     }
     
+    @IBAction func EditToDoListItemImage() {
+        guard let item = item else {return}
+        delegate?.didTapEditImage(item: item)
+    }
+    
     func configure(item: ToDoListItemModel) {
         self.item = item
+        ItemImage.image = UIImage(data: item.image)
         TitleLabel.text = item.title
         DateLabel.text = item.date
     }

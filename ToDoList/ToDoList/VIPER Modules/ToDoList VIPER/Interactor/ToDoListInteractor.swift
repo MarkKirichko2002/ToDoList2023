@@ -5,11 +5,14 @@
 //  Created by Марк Киричко on 29.05.2023
 //
 
+import UIKit
+
 protocol ToDoListInteractorProtocol: AnyObject {
     func getToDoListItems()
     func getToDayDate()
     func saveToDo(_ item: ToDoListItemModel)
     func changeToDo(item: ToDoListItemModel, title: String, description: String)
+    func changeToDoImage(item: ToDoListItemModel, image: UIImage)
     func deleteToDo(_ item: ToDoListItemModel)
 }
 
@@ -44,6 +47,11 @@ class ToDoListInteractor: ToDoListInteractorProtocol {
     
     func changeToDo(item: ToDoListItemModel, title: String, description: String) {
         realmManager?.changeItem(item: item, title: title, description: description)
+        presenter?.didChanged()
+    }
+    
+    func changeToDoImage(item: ToDoListItemModel, image: UIImage) {
+        realmManager?.uploadImage(item: item, image: image)
         presenter?.didChanged()
     }
     

@@ -6,6 +6,7 @@
 //
 
 import RealmSwift
+import UIKit
 
 class RealmManager {
     
@@ -35,6 +36,15 @@ class RealmManager {
         newItem.taskDescription = item.taskDescription
         try! realm.write {
             realm.add(newItem)
+        }
+    }
+    
+    // сохранить изображение
+    func uploadImage(item: ToDoListItemModel, image: UIImage) {
+        let data = NSData(data: image.jpegData(compressionQuality: 0.9)!)
+        let newItem = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
+        try! realm.write {
+            newItem?.image = data as Data
         }
     }
     
