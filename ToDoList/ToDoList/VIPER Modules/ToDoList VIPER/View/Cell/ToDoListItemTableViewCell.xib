@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="430" height="141"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.bullet.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YEI-Fu-FGQ" customClass="RoundedImageView" customModule="QUIZ" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.bullet.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YEI-Fu-FGQ" customClass="RoundedImageView" customModule="ToDoList" customModuleProvider="target">
                         <rect key="frame" x="30" y="20.000000000000007" width="100" height="98.666666666666686"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -40,9 +40,12 @@
                         <rect key="frame" x="207.33333333333337" y="35" width="222.66666666666663" height="34.333333333333343"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain">
-                            <imageReference key="image" image="checkmark.circle" catalog="system" symbolScale="large"/>
-                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                            <imageReference key="image" image="info.circle" catalog="system" symbolScale="large"/>
+                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </buttonConfiguration>
+                        <connections>
+                            <action selector="ShowToDoListItemInfo" destination="7Nn-4B-PF9" eventType="touchUpInside" id="dBm-Ei-oDu"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -62,18 +65,15 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="CompleteStatus" destination="Fq5-bs-fgb" id="e7E-A0-p0N"/>
                 <outlet property="DateLabel" destination="95d-Pu-FRh" id="jve-mt-Tbf"/>
+                <outlet property="InfoButton" destination="Fq5-bs-fgb" id="J3y-vn-Ll9"/>
                 <outlet property="TitleLabel" destination="DkQ-Sr-P1f" id="2f7-8z-HCa"/>
             </connections>
             <point key="canvasLocation" x="-13.740458015267174" y="0.11737447389414614"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="list.bullet.circle" catalog="system" width="128" height="123"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
