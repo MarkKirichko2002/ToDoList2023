@@ -13,6 +13,7 @@ protocol ToDoListPresenterProtocol: AnyObject {
     func EditToDo(item: ToDoListItemModel, title: String, description: String)
     func DeleteToDo(item: ToDoListItemModel)
     func didChanged()
+    func GoToItemDetail(item: ToDoListItemModel)
 }
 
 class ToDoListPresenter {
@@ -54,5 +55,9 @@ extension ToDoListPresenter: ToDoListPresenterProtocol {
     
     func didChanged() {
         interactor.GetToDoListItems()
+    }
+    
+    func GoToItemDetail(item: ToDoListItemModel) {
+        router.goToToDoListItemDetail(item: item)
     }
 }

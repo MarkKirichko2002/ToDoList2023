@@ -94,6 +94,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListItemTableViewCell.identifier, for: indexPath) as? ToDoListItemTableViewCell else {fatalError()}
         cell.configure(item: items[indexPath.row])
+        cell.delegate = self
         return cell
     }
     
@@ -120,5 +121,13 @@ extension ToDoListViewController: ToDoListViewProtocol {
         DispatchQueue.main.async {
             self.navigationItem.title = "Сегодня: \(date)"
         }
+    }
+}
+
+// MARK: - CustomCellDelegate
+extension ToDoListViewController: CustomCellDelegate {
+    
+    func didTapInfo(item: ToDoListItemModel) {
+        presenter?.GoToItemDetail(item: item)
     }
 }

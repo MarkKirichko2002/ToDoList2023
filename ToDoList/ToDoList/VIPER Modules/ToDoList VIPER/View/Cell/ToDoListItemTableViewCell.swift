@@ -7,17 +7,28 @@
 
 import UIKit
 
+protocol CustomCellDelegate: AnyObject {
+    func didTapInfo(item: ToDoListItemModel)
+}
+
 class ToDoListItemTableViewCell: UITableViewCell {
     
     static let identifier = "ToDoListItemTableViewCell"
+    weak var delegate: CustomCellDelegate?
+    private var item: ToDoListItemModel?
     
     @IBOutlet var TitleLabel: UILabel!
     @IBOutlet var DateLabel: UILabel!
-    @IBOutlet var CompleteStatus: UIButton!
+    @IBOutlet var InfoButton: UIButton!
+    
+    @IBAction func ShowToDoListItemInfo() {
+        guard let item = item else {return}
+        delegate?.didTapInfo(item: item)
+    }
     
     func configure(item: ToDoListItemModel) {
+        self.item = item
         TitleLabel.text = item.title
         DateLabel.text = item.date
-        CompleteStatus.setImage(UIImage(systemName: item.complete ? "checkmark.circle.fill" : "checkmark.circle"), for: .normal)
     }
 }

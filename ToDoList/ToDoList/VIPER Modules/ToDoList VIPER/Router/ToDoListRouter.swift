@@ -8,13 +8,15 @@
 import UIKit
 
 protocol ToDoListRouterProtocol {
-    func goToAddNewItemScreen()
+    func goToToDoListItemDetail(item: ToDoListItemModel)
 }
 
 class ToDoListRouter: ToDoListRouterProtocol {
+    
     weak var viewController: ToDoListViewController?
     
-    func goToAddNewItemScreen() {
-       
+    func goToToDoListItemDetail(item: ToDoListItemModel) {
+        let vc = ToDoListItemDetailViewController(item: item)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
