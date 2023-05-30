@@ -5,12 +5,15 @@
 //  Created by Марк Киричко on 29.05.2023
 //
 
+import UIKit
+
 protocol ToDoListPresenterProtocol: AnyObject {
     func interactorDidFetchedItems(items: [ToDoListItemModel])
     func getDate()
     func interactorDidFetchedDate(date: String)
     func addToDo(item: ToDoListItemModel)
     func editToDo(item: ToDoListItemModel, title: String, description: String)
+    func editToDoImage(item: ToDoListItemModel, image: UIImage)
     func deleteToDo(item: ToDoListItemModel)
     func didChanged()
     func goToItemDetail(item: ToDoListItemModel)
@@ -47,6 +50,10 @@ extension ToDoListPresenter: ToDoListPresenterProtocol {
     
     func editToDo(item: ToDoListItemModel, title: String, description: String) {
         interactor.changeToDo(item: item, title: title, description: description)
+    }
+    
+    func editToDoImage(item: ToDoListItemModel, image: UIImage) {
+        interactor.changeToDoImage(item: item, image: image)
     }
     
     func deleteToDo(item: ToDoListItemModel) {

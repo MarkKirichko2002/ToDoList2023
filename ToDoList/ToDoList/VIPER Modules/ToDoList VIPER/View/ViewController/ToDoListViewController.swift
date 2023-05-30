@@ -15,6 +15,7 @@ protocol ToDoListViewProtocol: AnyObject {
 class ToDoListViewController: UIViewController {
     
     private var items = [ToDoListItemModel]()
+    private var item: ToDoListItemModel?
     
     var presenter: ToDoListPresenterProtocol?
     
@@ -32,6 +33,14 @@ class ToDoListViewController: UIViewController {
         SetUpTable()
         makeAddButton()
         presenter?.getDate()
+    }
+    
+    private func openCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
     }
     
     private func SetUpTable() {
@@ -81,6 +90,10 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         return items.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.goToItemDetail(item: items[indexPath.row])
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListItemTableViewCell.identifier, for: indexPath) as? ToDoListItemTableViewCell else {fatalError()}
         cell.configure(item: items[indexPath.row])
@@ -117,10 +130,6 @@ extension ToDoListViewController: ToDoListViewProtocol {
 // MARK: - CustomCellDelegate
 extension ToDoListViewController: CustomCellDelegate {
     
-    func didTapInfo(item: ToDoListItemModel) {
-        presenter?.goToItemDetail(item: item)
-    }
-    
     func didTapEdit(item: ToDoListItemModel) {
         let alertController = UIAlertController(title: "Изменить задание", message: "Вы хотите изменить задание?", preferredStyle: .alert)
         alertController.addTextField(configurationHandler: nil)
@@ -138,5 +147,26 @@ extension ToDoListViewController: CustomCellDelegate {
         }))
         alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func didTapEditImage(item: ToDoListItemModel) {
+        self.item = item
+        openCamera()
+    }
+}
+
+// MARK: - UINavigationControllerDelegate, UIImagePickerControllerDelegate
+extension ToDoListViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+
+        guard let image = info[.editedImage] as? UIImage else {
+            return
+        }
+        
+        if let item = item {
+            presenter?.editToDoImage(item: item, image: image)
+        }
     }
 }

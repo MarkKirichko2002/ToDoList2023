@@ -52,6 +52,7 @@ class ToDoListItemDetailViewController: UIViewController {
         view.addSubview(TitleLabel)
         view.addSubview(DescriptionTextView)
         SetUpConstraints()
+        imageView.image = UIImage(data: item.image)
         TitleLabel.text = item.title
         DescriptionTextView.text = item.taskDescription
     }
