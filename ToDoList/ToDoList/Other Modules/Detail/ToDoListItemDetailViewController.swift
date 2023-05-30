@@ -33,7 +33,7 @@ class ToDoListItemDetailViewController: UIViewController {
         return textView
     }()
     
-    private let item: ToDoListItemModel?
+    private let item: ToDoListItemModel
     
     // MARK: - Init
     init(item: ToDoListItemModel) {
@@ -52,8 +52,8 @@ class ToDoListItemDetailViewController: UIViewController {
         view.addSubview(TitleLabel)
         view.addSubview(DescriptionTextView)
         SetUpConstraints()
-        TitleLabel.text = item?.title
-        DescriptionTextView.text = item?.taskDescription
+        TitleLabel.text = item.title
+        DescriptionTextView.text = item.taskDescription
     }
     
     private func SetUpConstraints() {

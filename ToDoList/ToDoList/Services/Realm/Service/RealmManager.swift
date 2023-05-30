@@ -10,7 +10,6 @@ import RealmSwift
 class RealmManager {
     
     private let realm = try! Realm()
-
     private var dateManager: DateManager?
     
     // MARK: - Init
@@ -18,6 +17,7 @@ class RealmManager {
         self.dateManager = dateManager
     }
     
+    // получить все элементы
     func fetchToDoListItems()-> [ToDoListItemModel] {
         var array = [ToDoListItemModel]()
         let items = realm.objects(ToDoListItemModel.self)
@@ -27,15 +27,18 @@ class RealmManager {
         return array
     }
     
+    // создать новый элемент
     func writeData(item: ToDoListItemModel) {
         let newItem = ToDoListItemModel()
         newItem.title = item.title
         newItem.date = dateManager?.GetCurrentDate() ?? ""
+        newItem.taskDescription = item.taskDescription
         try! realm.write {
             realm.add(newItem)
         }
     }
     
+    // редактировать элемент
     func changeItem(item: ToDoListItemModel, title: String, description: String) {
         let newItem = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
         try! realm.write {
@@ -44,6 +47,7 @@ class RealmManager {
         }
     }
     
+    // удалить элемент
     func deleteData(item: ToDoListItemModel) {
         let newItem = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
         guard let newItem = newItem else {return}

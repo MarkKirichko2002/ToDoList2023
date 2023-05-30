@@ -6,10 +6,10 @@
 //
 
 protocol ToDoListInteractorProtocol: AnyObject {
-    func GetToDoListItems()
-    func GetToDayDate()
+    func getToDoListItems()
+    func getToDayDate()
     func saveToDo(_ item: ToDoListItemModel)
-    func ChangeToDo(item: ToDoListItemModel, title: String, description: String)
+    func changeToDo(item: ToDoListItemModel, title: String, description: String)
     func deleteToDo(_ item: ToDoListItemModel)
 }
 
@@ -27,12 +27,12 @@ class ToDoListInteractor: ToDoListInteractorProtocol {
         self.dateManager = dateManager
     }
     
-    func GetToDoListItems() {
+    func getToDoListItems() {
         guard let realmManager = self.realmManager else {return}
         presenter?.interactorDidFetchedItems(items: realmManager.fetchToDoListItems())
     }
     
-    func GetToDayDate() {
+    func getToDayDate() {
         let date = dateManager?.GetCurrentDate() ?? ""
         presenter?.interactorDidFetchedDate(date: date)
     }
@@ -42,7 +42,7 @@ class ToDoListInteractor: ToDoListInteractorProtocol {
         presenter?.didChanged()
     }
     
-    func ChangeToDo(item: ToDoListItemModel, title: String, description: String) {
+    func changeToDo(item: ToDoListItemModel, title: String, description: String) {
         realmManager?.changeItem(item: item, title: title, description: description)
         presenter?.didChanged()
     }

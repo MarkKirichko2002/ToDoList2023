@@ -31,7 +31,7 @@ class ToDoListViewController: UIViewController {
         view.backgroundColor = .systemBackground
         SetUpTable()
         makeAddButton()
-        presenter?.GetDate()
+        presenter?.getDate()
     }
     
     private func SetUpTable() {
@@ -53,6 +53,10 @@ class ToDoListViewController: UIViewController {
     }
     
     @objc private func showAddNewItem() {
+        showAddNewItemAlert()
+    }
+    
+    private func showAddNewItemAlert() {
         let alertController = UIAlertController(title: "Добавить новое задание", message: "Введите название и описание", preferredStyle: .alert)
         alertController.addTextField(configurationHandler: nil)
         alertController.addTextField(configurationHandler: nil)
@@ -77,20 +81,6 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         return items.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alertController = UIAlertController(title: "Изменить задание", message: "Вы хотите изменить задание?", preferredStyle: .alert)
-        alertController.addTextField(configurationHandler: nil)
-        alertController.addTextField(configurationHandler: nil)
-        alertController.addAction(UIAlertAction(title: "Сохранить", style: .default, handler: { [weak self] _ in
-            let titleText = alertController.textFields![0].text ?? ""
-            let descriptionText = alertController.textFields![1].text ?? ""
-            guard !titleText.isEmpty, !descriptionText.isEmpty, let items = self?.items[indexPath.row] else { return }
-            self?.presenter?.EditToDo(item: items, title: titleText, description: descriptionText)
-        }))
-        alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-        present(alertController, animated: true, completion: nil)
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ToDoListItemTableViewCell.identifier, for: indexPath) as? ToDoListItemTableViewCell else {fatalError()}
         cell.configure(item: items[indexPath.row])
@@ -100,7 +90,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            presenter?.DeleteToDo(item: items[indexPath.row])
+            presenter?.deleteToDo(item: items[indexPath.row])
             self.items.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -128,6 +118,25 @@ extension ToDoListViewController: ToDoListViewProtocol {
 extension ToDoListViewController: CustomCellDelegate {
     
     func didTapInfo(item: ToDoListItemModel) {
-        presenter?.GoToItemDetail(item: item)
+        presenter?.goToItemDetail(item: item)
+    }
+    
+    func didTapEdit(item: ToDoListItemModel) {
+        let alertController = UIAlertController(title: "Изменить задание", message: "Вы хотите изменить задание?", preferredStyle: .alert)
+        alertController.addTextField(configurationHandler: nil)
+        alertController.addTextField(configurationHandler: nil)
+        alertController.addAction(UIAlertAction(title: "Сохранить", style: .default, handler: { [weak self] _ in
+            let titleText = alertController.textFields![0].text!
+            let descriptionText = alertController.textFields![1].text!
+            if !titleText.isEmpty {
+                self?.presenter?.editToDo(item: item, title: titleText, description: item.taskDescription)
+            } else if !descriptionText.isEmpty {
+                self?.presenter?.editToDo(item: item, title: item.title, description: descriptionText)
+            } else {
+                self?.presenter?.editToDo(item: item, title: item.title, description: item.taskDescription)
+            }
+        }))
+        alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
