@@ -9,6 +9,7 @@ import UIKit
 
 protocol CustomCellDelegate: AnyObject {
     func didTapInfo(item: ToDoListItemModel)
+    func didTapEdit(item: ToDoListItemModel)
 }
 
 class ToDoListItemTableViewCell: UITableViewCell {
@@ -24,6 +25,11 @@ class ToDoListItemTableViewCell: UITableViewCell {
     @IBAction func ShowToDoListItemInfo() {
         guard let item = item else {return}
         delegate?.didTapInfo(item: item)
+    }
+    
+    @IBAction func EditToDoListItem() {
+        guard let item = item else {return}
+        delegate?.didTapEdit(item: item)
     }
     
     func configure(item: ToDoListItemModel) {

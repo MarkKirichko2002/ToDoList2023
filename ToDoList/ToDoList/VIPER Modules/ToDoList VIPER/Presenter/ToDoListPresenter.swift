@@ -7,13 +7,13 @@
 
 protocol ToDoListPresenterProtocol: AnyObject {
     func interactorDidFetchedItems(items: [ToDoListItemModel])
-    func GetDate()
+    func getDate()
     func interactorDidFetchedDate(date: String)
     func addToDo(item: ToDoListItemModel)
-    func EditToDo(item: ToDoListItemModel, title: String, description: String)
-    func DeleteToDo(item: ToDoListItemModel)
+    func editToDo(item: ToDoListItemModel, title: String, description: String)
+    func deleteToDo(item: ToDoListItemModel)
     func didChanged()
-    func GoToItemDetail(item: ToDoListItemModel)
+    func goToItemDetail(item: ToDoListItemModel)
 }
 
 class ToDoListPresenter {
@@ -33,8 +33,8 @@ extension ToDoListPresenter: ToDoListPresenterProtocol {
         view?.displayToDoListItems(items: items)
     }
     
-    func GetDate() {
-        interactor.GetToDayDate()
+    func getDate() {
+        interactor.getToDayDate()
     }
     
     func interactorDidFetchedDate(date: String) {
@@ -45,19 +45,19 @@ extension ToDoListPresenter: ToDoListPresenterProtocol {
         interactor.saveToDo(item)
     }
     
-    func EditToDo(item: ToDoListItemModel, title: String, description: String) {
-        interactor.ChangeToDo(item: item, title: title, description: description)
+    func editToDo(item: ToDoListItemModel, title: String, description: String) {
+        interactor.changeToDo(item: item, title: title, description: description)
     }
     
-    func DeleteToDo(item: ToDoListItemModel) {
+    func deleteToDo(item: ToDoListItemModel) {
         interactor.deleteToDo(item)
     }
     
     func didChanged() {
-        interactor.GetToDoListItems()
+        interactor.getToDoListItems()
     }
     
-    func GoToItemDetail(item: ToDoListItemModel) {
+    func goToItemDetail(item: ToDoListItemModel) {
         router.goToToDoListItemDetail(item: item)
     }
 }
