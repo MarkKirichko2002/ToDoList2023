@@ -39,7 +39,16 @@ class RealmManager {
         }
     }
     
-    // сохранить изображение
+    // редактировать элемент
+    func changeItem(item: ToDoListItemModel, title: String, description: String) {
+        let newItem = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
+        try! realm.write {
+            newItem?.title = title
+            newItem?.taskDescription = description
+        }
+    }
+    
+    // изменить изображение элемента
     func uploadImage(item: ToDoListItemModel, image: UIImage) {
         let data = NSData(data: image.jpegData(compressionQuality: 0.9)!)
         let newItem = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
@@ -48,12 +57,11 @@ class RealmManager {
         }
     }
     
-    // редактировать элемент
-    func changeItem(item: ToDoListItemModel, title: String, description: String) {
+    // редактировать статус элемента
+    func changeItemCompleteStatus(item: ToDoListItemModel, complete: Bool) {
         let newItem = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
         try! realm.write {
-            newItem?.title = title
-            newItem?.taskDescription = description
+            newItem?.complete = complete
         }
     }
     
