@@ -153,6 +153,10 @@ extension ToDoListViewController: CustomCellDelegate {
         self.item = item
         openCamera()
     }
+    
+    func didTapCompleteStatus(item: ToDoListItemModel, complete: Bool) {
+        presenter?.editToDoCompleteStatus(item: item, complete: complete)
+    }
 }
 
 // MARK: - UINavigationControllerDelegate, UIImagePickerControllerDelegate

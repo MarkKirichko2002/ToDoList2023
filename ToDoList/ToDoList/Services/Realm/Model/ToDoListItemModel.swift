@@ -12,6 +12,7 @@ class ToDoListItemModel: Object {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var title: String
     @Persisted var taskDescription: String
+    @Persisted var complete: Bool
     @Persisted var date: String
     @Persisted var image: Data
 }

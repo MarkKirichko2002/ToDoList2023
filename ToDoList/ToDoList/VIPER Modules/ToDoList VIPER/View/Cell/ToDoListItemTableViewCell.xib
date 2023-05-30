@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,22 +25,22 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="название" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkQ-Sr-P1f">
-                        <rect key="frame" x="128" y="19" width="258" height="21.666666666666671"/>
-                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                        <rect key="frame" x="128" y="19" width="83.333333333333314" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="дата" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95d-Pu-FRh">
-                        <rect key="frame" x="127.99999999999999" y="60.666666666666664" width="39.333333333333329" height="21.666666666666664"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <rect key="frame" x="127.99999999999999" y="54.333333333333336" width="37.333333333333329" height="20.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="9Qz-Wi-K79">
-                        <rect key="frame" x="364.33333333333331" y="30" width="55.666666666666686" height="87"/>
+                        <rect key="frame" x="341.33333333333331" y="30" width="78.666666666666686" height="87"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iec-Fn-4Dw">
-                                <rect key="frame" x="0.0" y="0.0" width="55.666666666666664" height="39"/>
+                                <rect key="frame" x="0.0" y="0.0" width="78.666666666666671" height="39"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="21"/>
@@ -50,9 +51,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUL-Xx-lYu">
-                                <rect key="frame" x="0.0" y="48" width="55.666666666666664" height="39"/>
+                                <rect key="frame" x="0.0" y="48" width="78.666666666666671" height="39"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="camera.circle" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="photo" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="21"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
@@ -62,23 +63,36 @@
                             </button>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghp-4u-ljX">
+                        <rect key="frame" x="128" y="84.666666666666671" width="49.666666666666657" height="34.333333333333329"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="checkmark.circle" catalog="system">
+                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="ToggleCompleteStatus" destination="7Nn-4B-PF9" eventType="touchUpInside" id="HtA-9p-yUj"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="DkQ-Sr-P1f" firstAttribute="top" secondItem="YEI-Fu-FGQ" secondAttribute="top" constant="7.1054273576010019e-15" id="5HF-2o-FE8"/>
+                    <constraint firstItem="Ghp-4u-ljX" firstAttribute="top" secondItem="95d-Pu-FRh" secondAttribute="bottom" constant="10" id="Hfw-jp-vnr"/>
                     <constraint firstAttribute="trailing" secondItem="9Qz-Wi-K79" secondAttribute="trailing" constant="10" id="IVn-wk-drm"/>
                     <constraint firstItem="YEI-Fu-FGQ" firstAttribute="leading" secondItem="1yP-Zc-GfF" secondAttribute="leadingMargin" id="LcD-5x-YFE"/>
+                    <constraint firstItem="Ghp-4u-ljX" firstAttribute="leading" secondItem="95d-Pu-FRh" secondAttribute="leading" id="LzJ-zA-dGJ"/>
                     <constraint firstItem="YEI-Fu-FGQ" firstAttribute="top" secondItem="1yP-Zc-GfF" secondAttribute="topMargin" constant="8" id="MCH-Ag-SNt"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="DkQ-Sr-P1f" secondAttribute="trailing" constant="24" id="ReI-8W-7v7"/>
                     <constraint firstItem="95d-Pu-FRh" firstAttribute="leading" secondItem="DkQ-Sr-P1f" secondAttribute="leading" id="Riy-GT-I4c"/>
                     <constraint firstAttribute="bottom" secondItem="9Qz-Wi-K79" secondAttribute="bottom" constant="30" id="TMp-pc-bFj"/>
+                    <constraint firstItem="9Qz-Wi-K79" firstAttribute="leading" secondItem="DkQ-Sr-P1f" secondAttribute="trailing" constant="130" id="c12-Kf-szL"/>
                     <constraint firstItem="9Qz-Wi-K79" firstAttribute="top" secondItem="1yP-Zc-GfF" secondAttribute="top" constant="30" id="crC-E1-q9V"/>
                     <constraint firstItem="DkQ-Sr-P1f" firstAttribute="leading" secondItem="YEI-Fu-FGQ" secondAttribute="trailing" constant="8" id="eTA-Sf-A6P"/>
-                    <constraint firstItem="95d-Pu-FRh" firstAttribute="top" secondItem="DkQ-Sr-P1f" secondAttribute="bottom" constant="20" id="gfb-3b-5Ol"/>
+                    <constraint firstItem="95d-Pu-FRh" firstAttribute="top" secondItem="DkQ-Sr-P1f" secondAttribute="bottom" constant="15" id="gfb-3b-5Ol"/>
                     <constraint firstAttribute="bottomMargin" secondItem="YEI-Fu-FGQ" secondAttribute="bottom" constant="8" id="s4a-Q8-JZz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="DateLabel" destination="95d-Pu-FRh" id="rOj-7B-H7J"/>
+                <outlet property="ItemComplete" destination="Ghp-4u-ljX" id="XW8-yN-Bas"/>
                 <outlet property="ItemImage" destination="YEI-Fu-FGQ" id="Q0k-3o-p0O"/>
                 <outlet property="TitleLabel" destination="DkQ-Sr-P1f" id="tmW-ue-xD9"/>
             </connections>
@@ -86,8 +100,12 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="camera.circle" catalog="system" width="128" height="123"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
         <image name="list.bullet.circle" catalog="system" width="128" height="123"/>
         <image name="pencil.circle" catalog="system" width="128" height="123"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

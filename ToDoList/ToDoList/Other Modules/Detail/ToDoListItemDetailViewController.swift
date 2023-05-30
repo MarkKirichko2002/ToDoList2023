@@ -67,7 +67,7 @@ class ToDoListItemDetailViewController: UIViewController {
             // дата
             TitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             TitleLabel.heightAnchor.constraint(equalToConstant: 30),
-            TitleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
+            TitleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
             TitleLabel.bottomAnchor.constraint(equalTo: DescriptionTextView.topAnchor),
             // описание
             DescriptionTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
