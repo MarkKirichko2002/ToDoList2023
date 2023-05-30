@@ -104,8 +104,6 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             presenter?.deleteToDo(item: items[indexPath.row])
-            self.items.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 }
@@ -156,6 +154,10 @@ extension ToDoListViewController: CustomCellDelegate {
     
     func didTapCompleteStatus(item: ToDoListItemModel, complete: Bool) {
         presenter?.editToDoCompleteStatus(item: item, complete: complete)
+    }
+    
+    func didTapDelete(item: ToDoListItemModel) {
+        presenter?.deleteToDo(item: item)
     }
 }
 

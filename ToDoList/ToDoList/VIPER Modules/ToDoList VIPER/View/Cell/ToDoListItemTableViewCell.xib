@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,61 +36,43 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OTB-Gh-Ejd">
-                        <rect key="frame" x="360" y="10" width="60" height="114"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqO-bP-Akw">
-                                <rect key="frame" x="0.0" y="0.0" width="60" height="38"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="EditToDoListItem" destination="7Nn-4B-PF9" eventType="touchUpInside" id="F2m-M9-m4t"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hd7-G4-m8h">
-                                <rect key="frame" x="0.0" y="38" width="60" height="38"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="photo" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="EditToDoListItemImage" destination="7Nn-4B-PF9" eventType="touchUpInside" id="Rvu-uy-c0J"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMv-Uh-qeX">
-                                <rect key="frame" x="0.0" y="76" width="60" height="38"/>
-                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="checkmark" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="ToggleCompleteStatus" destination="7Nn-4B-PF9" eventType="touchUpInside" id="GQm-Nl-hZv"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDh-T9-Hrr">
+                        <rect key="frame" x="346" y="50" width="57" height="43"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="24"/>
+                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zf-XP-jp0">
+                        <rect key="frame" x="124" y="90" width="47.5" height="34"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="checkmark" catalog="system">
+                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="ToggleCompleteStatus" destination="7Nn-4B-PF9" eventType="touchUpInside" id="OBt-Gg-aCc"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="DkQ-Sr-P1f" firstAttribute="top" secondItem="YEI-Fu-FGQ" secondAttribute="top" constant="7.1054273576010019e-15" id="5HF-2o-FE8"/>
                     <constraint firstItem="YEI-Fu-FGQ" firstAttribute="leading" secondItem="1yP-Zc-GfF" secondAttribute="leadingMargin" id="LcD-5x-YFE"/>
                     <constraint firstItem="YEI-Fu-FGQ" firstAttribute="top" secondItem="1yP-Zc-GfF" secondAttribute="topMargin" constant="8" id="MCH-Ag-SNt"/>
                     <constraint firstItem="95d-Pu-FRh" firstAttribute="leading" secondItem="DkQ-Sr-P1f" secondAttribute="leading" id="Riy-GT-I4c"/>
-                    <constraint firstItem="OTB-Gh-Ejd" firstAttribute="top" secondItem="1yP-Zc-GfF" secondAttribute="top" constant="10" id="ddi-zb-zHK"/>
+                    <constraint firstItem="4zf-XP-jp0" firstAttribute="top" secondItem="95d-Pu-FRh" secondAttribute="bottom" constant="15" id="bpK-DK-lrw"/>
                     <constraint firstItem="DkQ-Sr-P1f" firstAttribute="leading" secondItem="YEI-Fu-FGQ" secondAttribute="trailing" constant="8" id="eTA-Sf-A6P"/>
                     <constraint firstItem="95d-Pu-FRh" firstAttribute="top" secondItem="DkQ-Sr-P1f" secondAttribute="bottom" constant="15" id="gfb-3b-5Ol"/>
+                    <constraint firstItem="4zf-XP-jp0" firstAttribute="leading" secondItem="95d-Pu-FRh" secondAttribute="leading" id="qOP-FK-CRY"/>
                     <constraint firstAttribute="bottomMargin" secondItem="YEI-Fu-FGQ" secondAttribute="bottom" constant="8" id="s4a-Q8-JZz"/>
-                    <constraint firstAttribute="trailing" secondItem="OTB-Gh-Ejd" secondAttribute="trailing" constant="10" id="xrK-c1-co9"/>
                     <constraint firstAttribute="trailing" secondItem="DkQ-Sr-P1f" secondAttribute="trailing" constant="70" id="zy3-mj-A5t"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="ContextButton" destination="gDh-T9-Hrr" id="WPi-wg-i0Q"/>
                 <outlet property="DateLabel" destination="95d-Pu-FRh" id="rOj-7B-H7J"/>
-                <outlet property="ItemComplete" destination="RMv-Uh-qeX" id="udT-6P-fV7"/>
+                <outlet property="ItemComplete" destination="4zf-XP-jp0" id="LZN-s8-HYg"/>
                 <outlet property="ItemImage" destination="YEI-Fu-FGQ" id="Q0k-3o-p0O"/>
                 <outlet property="TitleLabel" destination="DkQ-Sr-P1f" id="tmW-ue-xD9"/>
             </connections>
@@ -100,9 +81,8 @@
     </objects>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="list.bullet.circle" catalog="system" width="128" height="123"/>
-        <image name="pencil.circle" catalog="system" width="128" height="123"/>
-        <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
