@@ -23,6 +23,9 @@
 		8246B2162A26007600FF1E18 /* ToDoListItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246B2152A26007600FF1E18 /* ToDoListItemDetailViewController.swift */; };
 		824BF3732A255BED00A6E63D /* ToDoListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824BF3712A255BED00A6E63D /* ToDoListItemTableViewCell.swift */; };
 		824BF3742A255BED00A6E63D /* ToDoListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 824BF3722A255BED00A6E63D /* ToDoListItemTableViewCell.xib */; };
+		825DEB812A27C96C0041930B /* ToDoListTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DEB802A27C96C0041930B /* ToDoListTabBarController.swift */; };
+		825DEB842A27D1B00041930B /* InteractiveImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DEB832A27D1AF0041930B /* InteractiveImageView.swift */; };
+		825DEB872A27D1EA0041930B /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DEB862A27D1EA0041930B /* AnimationManager.swift */; };
 		82AEE33B2A24F341002AA2DA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 82AEE33A2A24F341002AA2DA /* RealmSwift */; };
 		82AEE3632A25196A002AA2DA /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AEE3622A25196A002AA2DA /* DateManager.swift */; };
 		82AEE3662A251A13002AA2DA /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 82AEE3652A251A13002AA2DA /* Swinject */; };
@@ -48,6 +51,9 @@
 		8246B2152A26007600FF1E18 /* ToDoListItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItemDetailViewController.swift; sourceTree = "<group>"; };
 		824BF3712A255BED00A6E63D /* ToDoListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItemTableViewCell.swift; sourceTree = "<group>"; };
 		824BF3722A255BED00A6E63D /* ToDoListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoListItemTableViewCell.xib; sourceTree = "<group>"; };
+		825DEB802A27C96C0041930B /* ToDoListTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTabBarController.swift; sourceTree = "<group>"; };
+		825DEB832A27D1AF0041930B /* InteractiveImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveImageView.swift; sourceTree = "<group>"; };
+		825DEB862A27D1EA0041930B /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		82AEE3622A25196A002AA2DA /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		82AEE3682A251A30002AA2DA /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +106,7 @@
 		823DEB312A24E78700B19DBB /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				825DEB822A27D1950041930B /* Custom Views */,
 				823DEB622A24F1A600B19DBB /* Services */,
 				82AEE3512A2505EA002AA2DA /* VIPER Modules */,
 				8246B2142A26005700FF1E18 /* Other Modules */,
@@ -127,6 +134,7 @@
 		823DEB622A24F1A600B19DBB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				825DEB852A27D1CE0041930B /* Animation */,
 				820CADCE2A26D4B200C23304 /* Audio */,
 				820CADCB2A26C7E400C23304 /* File */,
 				82AEE3672A251A23002AA2DA /* Injection */,
@@ -180,6 +188,7 @@
 		8246B2142A26005700FF1E18 /* Other Modules */ = {
 			isa = PBXGroup;
 			children = (
+				825DEB7F2A27C9390041930B /* TabBar */,
 				8246B2172A26072A00FF1E18 /* Detail */,
 			);
 			path = "Other Modules";
@@ -200,6 +209,30 @@
 				824BF3722A255BED00A6E63D /* ToDoListItemTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		825DEB7F2A27C9390041930B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				825DEB802A27C96C0041930B /* ToDoListTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		825DEB822A27D1950041930B /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				825DEB832A27D1AF0041930B /* InteractiveImageView.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		825DEB852A27D1CE0041930B /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				825DEB862A27D1EA0041930B /* AnimationManager.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		82AEE33C2A24F49A002AA2DA /* Realm */ = {
@@ -344,11 +377,14 @@
 				82AEE3632A25196A002AA2DA /* DateManager.swift in Sources */,
 				823DEB5D2A24F0A200B19DBB /* ToDoListPresenter.swift in Sources */,
 				8246B2162A26007600FF1E18 /* ToDoListItemDetailViewController.swift in Sources */,
+				825DEB872A27D1EA0041930B /* AnimationManager.swift in Sources */,
+				825DEB842A27D1B00041930B /* InteractiveImageView.swift in Sources */,
 				823DEB5E2A24F0A200B19DBB /* ToDoListRouter.swift in Sources */,
 				823DEB332A24E78700B19DBB /* AppDelegate.swift in Sources */,
 				823DEB5C2A24F0A200B19DBB /* ToDoListModuleBuilder.swift in Sources */,
 				823DEB642A24F1CC00B19DBB /* RealmManager.swift in Sources */,
 				823DEB602A24F0A200B19DBB /* ToDoListInteractor.swift in Sources */,
+				825DEB812A27C96C0041930B /* ToDoListTabBarController.swift in Sources */,
 				823DEB5F2A24F0A200B19DBB /* ToDoListViewController.swift in Sources */,
 				824BF3732A255BED00A6E63D /* ToDoListItemTableViewCell.swift in Sources */,
 				82AEE3692A251A30002AA2DA /* Injection.swift in Sources */,

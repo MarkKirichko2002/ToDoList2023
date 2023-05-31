@@ -207,14 +207,14 @@ extension ToDoListViewController: UIDocumentPickerDelegate {
                 guard let item = self.item else {return}
                 presenter?.editToDoSound(item: item, path: sandboxFileURL)
             } catch {
-                
+                print(error)
             }
             
         } else {
             
             do {
-                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
                 print("copied dile")
+                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
                 guard let item = self.item else {return}
                 presenter?.editToDoSound(item: item, path: sandboxFileURL)
             } catch {

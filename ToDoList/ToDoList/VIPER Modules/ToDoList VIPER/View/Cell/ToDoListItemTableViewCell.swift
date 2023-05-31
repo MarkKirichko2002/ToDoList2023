@@ -24,7 +24,7 @@ class ToDoListItemTableViewCell: UITableViewCell {
     
     @IBOutlet var TitleLabel: UILabel!
     @IBOutlet var DateLabel: UILabel!
-    @IBOutlet var ItemImage: UIImageView!
+    @IBOutlet var ItemImage: InteractiveImageView!
     @IBOutlet var ItemComplete: UIButton!
     @IBOutlet var ContextButton: UIButton!
     
@@ -42,6 +42,7 @@ class ToDoListItemTableViewCell: UITableViewCell {
     func configure(item: ToDoListItemModel) {
         self.item = item
         ItemImage.image = UIImage(data: item.image) ?? UIImage(systemName: "list.bullet.circle")
+        ItemImage.sound = item.sound
         TitleLabel.text = item.title
         DateLabel.text = item.date
         ItemComplete.setImage(UIImage(systemName: item.complete ? "checkmark.circle.fill" : "checkmark.circle"), for: .normal)
@@ -50,7 +51,7 @@ class ToDoListItemTableViewCell: UITableViewCell {
     
     private func setUpContextMenu() {
         // редактировать элемента
-        let edit = UIAction(title: "изменить", image: UIImage(systemName: "square.and.pencil")) { _ in
+        let edit = UIAction(title: "редактировать", image: UIImage(systemName: "square.and.pencil")) { _ in
             guard let item = self.item else {return}
             DispatchQueue.main.async {
                 self.delegate?.didTapEdit(item: item)
