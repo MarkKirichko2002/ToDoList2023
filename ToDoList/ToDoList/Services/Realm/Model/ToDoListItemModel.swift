@@ -15,5 +15,6 @@ class ToDoListItemModel: Object {
     @Persisted var complete: Bool
     @Persisted var date: String
     @Persisted var image: Data
+    @Persisted var sound: String
 }
 

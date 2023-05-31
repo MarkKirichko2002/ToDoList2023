@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 protocol ToDoListViewProtocol: AnyObject {
     func displayCurrentDate(date: String)
@@ -16,6 +17,7 @@ class ToDoListViewController: UIViewController {
     
     private var items = [ToDoListItemModel]()
     private var item: ToDoListItemModel?
+    let player = AudioPlayer()
     
     var presenter: ToDoListPresenterProtocol?
     
@@ -91,6 +93,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        player.playSound(path: items[indexPath.row].sound)
         presenter?.goToItemDetail(item: items[indexPath.row])
     }
     
@@ -152,6 +155,14 @@ extension ToDoListViewController: CustomCellDelegate {
         openCamera()
     }
     
+    func didTapEditSound(item: ToDoListItemModel) {
+        self.item = item
+        let fileService = FileService()
+        fileService.delegate = self
+        fileService.vc = self
+        fileService.importFiles()
+    }
+    
     func didTapCompleteStatus(item: ToDoListItemModel, complete: Bool) {
         presenter?.editToDoCompleteStatus(item: item, complete: complete)
     }
@@ -166,7 +177,7 @@ extension ToDoListViewController: UINavigationControllerDelegate, UIImagePickerC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
-
+        
         guard let image = info[.editedImage] as? UIImage else {
             return
         }
@@ -174,5 +185,14 @@ extension ToDoListViewController: UINavigationControllerDelegate, UIImagePickerC
         if let item = item {
             presenter?.editToDoImage(item: item, image: image)
         }
+    }
+}
+
+// MARK: - UIDocumentPickerDelegate
+extension ToDoListViewController: UIDocumentPickerDelegate {
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let item = self.item else {return}
+        presenter?.editToDoSound(item: item, path: urls.first!)
     }
 }

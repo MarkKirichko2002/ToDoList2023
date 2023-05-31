@@ -13,6 +13,7 @@ protocol ToDoListInteractorProtocol: AnyObject {
     func saveToDo(_ item: ToDoListItemModel)
     func changeToDo(item: ToDoListItemModel, title: String, description: String)
     func changeToDoImage(item: ToDoListItemModel, image: UIImage)
+    func changeToDoSound(item: ToDoListItemModel, path: URL)
     func changeToDoCompleteStatus(item: ToDoListItemModel, complete: Bool)
     func deleteToDo(_ item: ToDoListItemModel)
 }
@@ -53,6 +54,11 @@ class ToDoListInteractor: ToDoListInteractorProtocol {
     
     func changeToDoImage(item: ToDoListItemModel, image: UIImage) {
         realmManager?.uploadImage(item: item, image: image)
+        presenter?.didChanged()
+    }
+    
+    func changeToDoSound(item: ToDoListItemModel, path: URL) {
+        realmManager?.changeItemSound(item: item, path: path.absoluteString)
         presenter?.didChanged()
     }
     

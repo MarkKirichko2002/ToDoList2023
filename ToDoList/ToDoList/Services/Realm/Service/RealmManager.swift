@@ -25,6 +25,7 @@ class RealmManager {
         for item in items {
             array.append(item)
         }
+        print(array)
         return array
     }
     
@@ -54,6 +55,14 @@ class RealmManager {
         let newItem = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
         try! realm.write {
             newItem?.image = data as Data
+        }
+    }
+    
+    // изменить звук элемента
+    func changeItemSound(item: ToDoListItemModel, path: String) {
+        let newItem = realm.object(ofType: ToDoListItemModel.self, forPrimaryKey: item.id)
+        try! realm.write {
+            newItem?.sound = path
         }
     }
     

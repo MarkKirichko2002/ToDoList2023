@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820CADCD2A26C7FA00C23304 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820CADCC2A26C7FA00C23304 /* FileService.swift */; };
+		820CADD02A26D4BF00C23304 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820CADCF2A26D4BF00C23304 /* AudioPlayer.swift */; };
 		823DEB332A24E78700B19DBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823DEB322A24E78700B19DBB /* AppDelegate.swift */; };
 		823DEB352A24E78700B19DBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823DEB342A24E78700B19DBB /* SceneDelegate.swift */; };
 		823DEB3C2A24E78900B19DBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 823DEB3B2A24E78900B19DBB /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		820CADCC2A26C7FA00C23304 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
+		820CADCF2A26D4BF00C23304 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		823DEB2F2A24E78700B19DBB /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		823DEB322A24E78700B19DBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		823DEB342A24E78700B19DBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		820CADCB2A26C7E400C23304 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				820CADCC2A26C7FA00C23304 /* FileService.swift */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		820CADCE2A26D4B200C23304 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				820CADCF2A26D4BF00C23304 /* AudioPlayer.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		823DEB262A24E78700B19DBB = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +127,8 @@
 		823DEB622A24F1A600B19DBB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				820CADCE2A26D4B200C23304 /* Audio */,
+				820CADCB2A26C7E400C23304 /* File */,
 				82AEE3672A251A23002AA2DA /* Injection */,
 				82AEE3612A25191E002AA2DA /* Date */,
 				82AEE33C2A24F49A002AA2DA /* Realm */,
@@ -317,6 +339,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				823DEB6C2A24F2EF00B19DBB /* ToDoListItemModel.swift in Sources */,
+				820CADCD2A26C7FA00C23304 /* FileService.swift in Sources */,
+				820CADD02A26D4BF00C23304 /* AudioPlayer.swift in Sources */,
 				82AEE3632A25196A002AA2DA /* DateManager.swift in Sources */,
 				823DEB5D2A24F0A200B19DBB /* ToDoListPresenter.swift in Sources */,
 				8246B2162A26007600FF1E18 /* ToDoListItemDetailViewController.swift in Sources */,

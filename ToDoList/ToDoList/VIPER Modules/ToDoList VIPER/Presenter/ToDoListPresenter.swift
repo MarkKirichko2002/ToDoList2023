@@ -14,6 +14,7 @@ protocol ToDoListPresenterProtocol: AnyObject {
     func addToDo(item: ToDoListItemModel)
     func editToDo(item: ToDoListItemModel, title: String, description: String)
     func editToDoImage(item: ToDoListItemModel, image: UIImage)
+    func editToDoSound(item: ToDoListItemModel, path: URL)
     func editToDoCompleteStatus(item: ToDoListItemModel, complete: Bool)
     func deleteToDo(item: ToDoListItemModel)
     func didChanged()
@@ -55,6 +56,10 @@ extension ToDoListPresenter: ToDoListPresenterProtocol {
     
     func editToDoImage(item: ToDoListItemModel, image: UIImage) {
         interactor.changeToDoImage(item: item, image: image)
+    }
+  
+    func editToDoSound(item: ToDoListItemModel, path: URL) {
+        interactor.changeToDoSound(item: item, path: path)
     }
     
     func editToDoCompleteStatus(item: ToDoListItemModel, complete: Bool) {
