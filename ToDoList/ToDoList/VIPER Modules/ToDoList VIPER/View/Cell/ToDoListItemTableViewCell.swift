@@ -10,6 +10,7 @@ import UIKit
 protocol CustomCellDelegate: AnyObject {
     func didTapEdit(item: ToDoListItemModel)
     func didTapEditImage(item: ToDoListItemModel)
+    func didTapEditSound(item: ToDoListItemModel)
     func didTapCompleteStatus(item: ToDoListItemModel, complete: Bool)
     func didTapDelete(item: ToDoListItemModel)
 }
@@ -62,6 +63,13 @@ class ToDoListItemTableViewCell: UITableViewCell {
                 self.delegate?.didTapEditImage(item: item)
             }
         }
+        // редактировать звук
+        let editSound = UIAction(title: "звук", image: UIImage(systemName: "music.note")) { _ in
+            guard let item = self.item else {return}
+            DispatchQueue.main.async {
+                self.delegate?.didTapEditSound(item: item)
+            }
+        }
         // удалить элемента
         let delete = UIAction(title: "удалить", image: UIImage(systemName: "trash")) { _ in
             guard let item = self.item else {return}
@@ -70,6 +78,6 @@ class ToDoListItemTableViewCell: UITableViewCell {
             }
         }
         ContextButton.showsMenuAsPrimaryAction = true
-        ContextButton.menu = UIMenu(title: "", children: [edit, editImage, delete])
+        ContextButton.menu = UIMenu(title: "", children: [edit, editImage, editSound, delete])
     }
 }

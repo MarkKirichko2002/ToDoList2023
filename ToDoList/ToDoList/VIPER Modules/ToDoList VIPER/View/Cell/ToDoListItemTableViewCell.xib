@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,11 +13,11 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ToDoListItemTableViewCell" rowHeight="146" id="7Nn-4B-PF9" customClass="ToDoListItemTableViewCell" customModule="ToDoList" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="430" height="146"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Nn-4B-PF9" id="1yP-Zc-GfF">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Nn-4B-PF9" id="1yP-Zc-GfF">
                 <rect key="frame" x="0.0" y="0.0" width="430" height="146"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.bullet.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YEI-Fu-FGQ" customClass="RoundedImageView" customModule="ToDoList" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.bullet.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YEI-Fu-FGQ">
                         <rect key="frame" x="16" y="19.5" width="100" height="99"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -36,9 +37,8 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDh-T9-Hrr">
-                        <rect key="frame" x="346" y="50" width="57" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDh-T9-Hrr">
+                        <rect key="frame" x="357" y="41" width="57" height="53"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system">
                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="24"/>
@@ -58,6 +58,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="DkQ-Sr-P1f" firstAttribute="top" secondItem="YEI-Fu-FGQ" secondAttribute="top" constant="7.1054273576010019e-15" id="5HF-2o-FE8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="gDh-T9-Hrr" secondAttribute="bottom" constant="30" id="9Kt-tI-agd"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="gDh-T9-Hrr" secondAttribute="trailing" id="ADu-0b-w2M"/>
+                    <constraint firstItem="gDh-T9-Hrr" firstAttribute="top" secondItem="1yP-Zc-GfF" secondAttribute="topMargin" constant="30" id="L0r-oX-2y5"/>
                     <constraint firstItem="YEI-Fu-FGQ" firstAttribute="leading" secondItem="1yP-Zc-GfF" secondAttribute="leadingMargin" id="LcD-5x-YFE"/>
                     <constraint firstItem="YEI-Fu-FGQ" firstAttribute="top" secondItem="1yP-Zc-GfF" secondAttribute="topMargin" constant="8" id="MCH-Ag-SNt"/>
                     <constraint firstItem="95d-Pu-FRh" firstAttribute="leading" secondItem="DkQ-Sr-P1f" secondAttribute="leading" id="Riy-GT-I4c"/>
@@ -65,6 +68,7 @@
                     <constraint firstItem="DkQ-Sr-P1f" firstAttribute="leading" secondItem="YEI-Fu-FGQ" secondAttribute="trailing" constant="8" id="eTA-Sf-A6P"/>
                     <constraint firstItem="95d-Pu-FRh" firstAttribute="top" secondItem="DkQ-Sr-P1f" secondAttribute="bottom" constant="15" id="gfb-3b-5Ol"/>
                     <constraint firstItem="4zf-XP-jp0" firstAttribute="leading" secondItem="95d-Pu-FRh" secondAttribute="leading" id="qOP-FK-CRY"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4zf-XP-jp0" secondAttribute="bottom" id="qfh-4J-3KF"/>
                     <constraint firstAttribute="bottomMargin" secondItem="YEI-Fu-FGQ" secondAttribute="bottom" constant="8" id="s4a-Q8-JZz"/>
                     <constraint firstAttribute="trailing" secondItem="DkQ-Sr-P1f" secondAttribute="trailing" constant="70" id="zy3-mj-A5t"/>
                 </constraints>
