@@ -9,8 +9,8 @@ import UIKit
 
 class ToDoListItemDetailViewController: UIViewController {
 
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
+    private let TaskImage: InteractiveImageView = {
+        let imageView = InteractiveImageView()
         imageView.image = UIImage(systemName: "list.bullet.circle")
         imageView.tintColor = .black
         imageView.contentMode = .scaleAspectFill
@@ -48,11 +48,12 @@ class ToDoListItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        view.addSubview(imageView)
+        view.addSubview(TaskImage)
         view.addSubview(TitleLabel)
         view.addSubview(DescriptionTextView)
         SetUpConstraints()
-        imageView.image = UIImage(data: item.image) ?? UIImage(systemName: "list.bullet.circle")
+        TaskImage.image = UIImage(data: item.image) ?? UIImage(systemName: "list.bullet.circle")
+        TaskImage.sound = item.sound
         TitleLabel.text = item.title
         DescriptionTextView.text = item.taskDescription
     }
@@ -60,14 +61,14 @@ class ToDoListItemDetailViewController: UIViewController {
     private func SetUpConstraints() {
         NSLayoutConstraint.activate([
             // изображение
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            imageView.widthAnchor.constraint(equalToConstant: 250),
-            imageView.heightAnchor.constraint(equalToConstant: 250),
+            TaskImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            TaskImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            TaskImage.widthAnchor.constraint(equalToConstant: 250),
+            TaskImage.heightAnchor.constraint(equalToConstant: 250),
             // дата
             TitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             TitleLabel.heightAnchor.constraint(equalToConstant: 30),
-            TitleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
+            TitleLabel.topAnchor.constraint(equalTo: TaskImage.bottomAnchor, constant: 10),
             TitleLabel.bottomAnchor.constraint(equalTo: DescriptionTextView.topAnchor),
             // описание
             DescriptionTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
