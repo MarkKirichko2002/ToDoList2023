@@ -192,7 +192,34 @@ extension ToDoListViewController: UINavigationControllerDelegate, UIImagePickerC
 extension ToDoListViewController: UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        guard let item = self.item else {return}
-        presenter?.editToDoSound(item: item, path: urls.first!)
+       
+        guard let selectedFileURL = urls.first else {
+            return
+        }
+        
+        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
+        
+        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
+          
+            do {
+                print("уже есть")
+                guard let item = self.item else {return}
+                presenter?.editToDoSound(item: item, path: sandboxFileURL)
+            } catch {
+                
+            }
+            
+        } else {
+            
+            do {
+                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
+                print("copied dile")
+                guard let item = self.item else {return}
+                presenter?.editToDoSound(item: item, path: sandboxFileURL)
+            } catch {
+                print("Ошибка: \(error)")
+            }
+        }
     }
 }
