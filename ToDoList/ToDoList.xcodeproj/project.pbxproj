@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		820CADCD2A26C7FA00C23304 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820CADCC2A26C7FA00C23304 /* FileService.swift */; };
 		820CADD02A26D4BF00C23304 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820CADCF2A26D4BF00C23304 /* AudioPlayer.swift */; };
+		82239E502A4F52F4005283E5 /* ToDoListViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82239E4F2A4F52F4005283E5 /* ToDoListViewController + Extensions.swift */; };
 		823DEB332A24E78700B19DBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823DEB322A24E78700B19DBB /* AppDelegate.swift */; };
 		823DEB352A24E78700B19DBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823DEB342A24E78700B19DBB /* SceneDelegate.swift */; };
 		823DEB3C2A24E78900B19DBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 823DEB3B2A24E78900B19DBB /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		820CADCC2A26C7FA00C23304 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		820CADCF2A26D4BF00C23304 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		82239E4F2A4F52F4005283E5 /* ToDoListViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListViewController + Extensions.swift"; sourceTree = "<group>"; };
 		823DEB2F2A24E78700B19DBB /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		823DEB322A24E78700B19DBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		823DEB342A24E78700B19DBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 				820CADCF2A26D4BF00C23304 /* AudioPlayer.swift */,
 			);
 			path = Audio;
+			sourceTree = "<group>";
+		};
+		82239E4E2A4F52D0005283E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				82239E4F2A4F52F4005283E5 /* ToDoListViewController + Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		823DEB262A24E78700B19DBB = {
@@ -173,6 +183,7 @@
 			children = (
 				82AEE3402A24F70D002AA2DA /* ViewController */,
 				824BF3702A255BC100A6E63D /* Cell */,
+				82239E4E2A4F52D0005283E5 /* Extensions */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -374,6 +385,7 @@
 				823DEB6C2A24F2EF00B19DBB /* ToDoListItemModel.swift in Sources */,
 				820CADCD2A26C7FA00C23304 /* FileService.swift in Sources */,
 				820CADD02A26D4BF00C23304 /* AudioPlayer.swift in Sources */,
+				82239E502A4F52F4005283E5 /* ToDoListViewController + Extensions.swift in Sources */,
 				82AEE3632A25196A002AA2DA /* DateManager.swift in Sources */,
 				823DEB5D2A24F0A200B19DBB /* ToDoListPresenter.swift in Sources */,
 				8246B2162A26007600FF1E18 /* ToDoListItemDetailViewController.swift in Sources */,

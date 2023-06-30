@@ -19,7 +19,7 @@ class InteractiveImageView: UIImageView {
         self.addGestureRecognizer(tap)
     }
     
-    @IBAction func tapFunction(sender: UITapGestureRecognizer) {
+    @objc private func tapFunction(sender: UITapGestureRecognizer) {
         player.playSound(path: sound)
         animation.SpringAnimation(view: self)
     }
